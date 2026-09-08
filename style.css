@@ -138,10 +138,9 @@
        Make sure 'picture_phd.jpg' is uploaded to the root of your repo. */
     .hero-photo {
       flex-shrink: 0;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
+      width: 240px;
+      height: auto;           /* full photo, uncropped 2:3 portrait */
+      border-radius: 4px;
       border: 3px solid var(--divider);
       background-color: var(--divider); /* fallback colour if image missing */
     }
