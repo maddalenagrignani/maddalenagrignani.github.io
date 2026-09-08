@@ -3,381 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maddalena Grignani | Economics</title>
+
+  <title>Maddalena Grignani | PhD Student in Economics, Pompeu Fabra University</title>
+  <meta name="description" content="Maddalena Grignani is a PhD student in Economics at Pompeu Fabra University, Barcelona, studying sex education, gender gaps in the labour market, institutional trust and access to healthcare.">
+  <link rel="canonical" href="https://maddalenagrignani.github.io/">
+
+  <!-- Social preview -->
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Maddalena Grignani">
+  <meta property="og:title" content="Maddalena Grignani | PhD Student in Economics, Pompeu Fabra University">
+  <meta property="og:description" content="PhD student in Economics at Pompeu Fabra University, Barcelona. Applied econometrics and policy evaluation: sex education, gender gaps, institutional trust and healthcare access.">
+  <meta property="og:url" content="https://maddalenagrignani.github.io/">
+  <meta property="og:image" content="https://maddalenagrignani.github.io/my_pic.jpg">
+  <meta name="twitter:card" content="summary">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --brick: #8B3A3A;
-      --bg: #fcfaf9;
-      --text: #2b2b2b;
-      --muted: #777;
-      --divider: #e0d6d6;
-      --tag-bg: #f2eded;
-    }
+  <link rel="stylesheet" href="/style.css">
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 15px;
-      line-height: 1.75;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 60px;
-      background: rgba(252, 250, 249, 0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--divider);
-    }
-
-    .nav-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-weight: 400;
-      letter-spacing: 0.03em;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--brick); }
-
-    /* ── PHOTO BANNER ──
-       Full-width image strip used as a section header.
-       The ::after layer is a dark gradient overlay so the white text
-       stays readable regardless of photo brightness.
-
-       TO SWAP A PHOTO: find the class below (e.g. .banner-research)
-       and change the background-image URL to your new filename.
-    ── */
-    .photo-banner {
-      width: 100%;
-      height: 200px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-    }
--
-    /* Default overlay for section banners */
-    .photo-banner::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(20, 10, 10, 0.10) 0%,
-        rgba(20, 10, 10, 0.38) 100%
-      );
-    }
-
-    /* ── No overlay on the hobbies banner ──
-       We override ::after to be fully transparent so the photo
-       shows clean without any darkening gradient.
-    ── */
-    .banner-hobbies::after {
-      background: none;
-    }
-
-    .banner-label {
-      position: relative;
-      z-index: 1;
-      padding: 32px 60px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 40px;
-      font-weight: 300;
-      letter-spacing: 0.02em;
-      color: #fff;
-    }
-
-    /* ── PER-SECTION PHOTOS ──
-       When you upload new images, change the URL here — nowhere else.
-    ── */
-    .banner-hero     { background-image: url('leafs.jpg'); height: 300px; }
-    .banner-research { background-image: url('straws.jpg'); }
-    .banner-teaching { background-image: url('wonder.jpg'); }
-
-    /* ── HOBBIES BANNER ──
-       No overlay (handled above). Replace filename when ready.
-    ── */
-    .banner-hobbies {
-      background-image: url('jellyfish_slice.jpg');
-      height: 200px;
-      background-position: center 60%;
-    }
-
-    /* ── HERO CONTENT ── */
-    .hero-content {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 48px 40px 52px;
-      display: flex;
-      gap: 48px;
-      align-items: flex-start;
-    }
-
-    /* The profile photo.
-       If the image file doesn't exist, a grey circle shows as fallback.
-       Make sure 'picture_phd.jpg' is uploaded to the root of your repo. */
-    .hero-photo {
-      flex-shrink: 0;
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--divider);
-      background-color: var(--divider); /* fallback colour if image missing */
-    }
-
-    .hero-text h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 42px;
-      font-weight: 300;
-      line-height: 1.15;
-      margin-bottom: 14px;
-    }
-
-    .hero-text p { color: var(--muted); margin-bottom: 6px; }
-    .hero-text p strong { color: var(--text); }
-
-    .hero-links {
-      display: flex;
-      gap: 16px;
-      margin-top: 18px;
-      flex-wrap: wrap;
-    }
-
-    .hero-links a {
-      font-size: 12.5px;
-      font-weight: 500;
-      color: var(--brick);
-      text-decoration: none;
-      border-bottom: 1px solid var(--brick);
-      padding-bottom: 1px;
-      transition: opacity 0.2s;
-    }
-
-    .hero-links a:hover { opacity: 0.6; }
-
-    /* ── INTEREST CHIPS ── */
-    .interests-row {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 40px 52px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .chip {
-      font-size: 12.5px;
-      padding: 4px 13px;
-      border: 1px solid var(--divider);
-      border-radius: 2px;
-      color: var(--text);
-    }
-
-    /* ── SECTION BODY ── */
-    .section-body {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 52px 40px 60px;
-    }
-
-    /* ── SUBSECTION DIVIDER ──
-       Dark grey label line used to split Working Papers / Work in Progress / Publications.
-       The ::after pseudo-element draws the line that stretches to the right of the label.
-    ── */
-    .subsection-label {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin: 44px 0 28px;
-    }
-
-    .subsection-label:first-child { margin-top: 0; }
-
-    .subsection-label span {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      color: #444;
-    }
-
-    .subsection-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: #444;
-    }
-
-    /* ── PAPER ENTRY ── */
-    .paper {
-      margin-bottom: 36px;
-      padding-bottom: 36px;
-      border-bottom: 1px solid var(--divider);
-    }
-
-    .paper:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .paper-status {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 5px;
-    }
-
-    .paper-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 21px;
-      font-weight: 400;
-      line-height: 1.35;
-      margin-bottom: 5px;
-    }
-
-    .paper-coauthors {
-      font-size: 13.5px;
-      color: var(--muted);
-      font-style: italic;
-      margin-bottom: 10px;
-    }
-
-    .paper-venue {
-      font-size: 13px;
-      margin-bottom: 12px;
-    }
-
-    .paper-links { display: flex; gap: 8px; flex-wrap: wrap; }
-
-    .tag {
-      font-size: 11.5px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      padding: 3px 10px;
-      border-radius: 2px;
-      background: var(--tag-bg);
-      color: var(--brick);
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-
-    .tag:hover { background: #e8dcdc; }
-
-    /* ── TEACHING TABLE ── */
-    .teaching-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-
-    .teaching-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .teaching-table tr {
-      border-bottom: 1px solid var(--divider);
-    }
-
-    .teaching-table tr:last-child {
-      border-bottom: none;
-    }
-
-    .teaching-table td {
-      padding: 9px 0;
-      font-size: 14px;
-      vertical-align: baseline;
-    }
-
-    .teaching-table td:first-child {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-weight: 400;
-    }
-
-    .teaching-table td:last-child {
-      text-align: right;
-      color: var(--muted);
-      font-size: 12px;
-      white-space: nowrap;
-      padding-left: 20px;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 36px 40px 20px;
-      font-size: 12px;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-      border-top: 1px solid var(--divider);
-    }
-
-    /* ── MOBILE ── */
-    @media (max-width: 620px) {
-      nav { padding: 14px 20px; }
-      .nav-name { font-size: 15px; }
-      .nav-links { gap: 18px; }
-      .banner-label { font-size: 28px; padding: 22px; }
-      .photo-banner { height: 120px; }
-      .banner-hero { height: 300px; }
-      .hero-content { flex-direction: column; gap: 20px; padding: 28px 20px 36px; }
-      .interests-row, .section-body { padding-left: 20px; padding-right: 20px; }
-      footer { flex-direction: column; gap: 6px; padding: 28px 20px 16px; }
-      .teaching-table td:first-child { font-size: 15px; }
-    }
-  </style>
+  <!-- Structured data: tells Google who this page is about -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Maddalena Grignani",
+    "url": "https://maddalenagrignani.github.io/",
+    "image": "https://maddalenagrignani.github.io/my_pic.jpg",
+    "jobTitle": "PhD Student in Economics",
+    "email": "mailto:maddalena.grignani@upf.edu",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Pompeu Fabra University",
+      "url": "https://www.upf.edu/web/econ"
+    },
+    "knowsAbout": [
+      "Health Economics",
+      "Economics of Education",
+      "Behavioral Economics",
+      "Applied Econometrics",
+      "Policy Evaluation"
+    ],
+    "sameAs": [
+      "https://scholar.google.com/citations?user=r9fAOdUAAAAJ&hl=en",
+      "https://ideas.repec.org/f/pgr784.html"
+    ]
+  }
+  </script>
 </head>
 <body>
 
 <!-- ── NAV ── -->
 <nav>
-  <a href="#" class="nav-name">Maddalena Grignani</a>
+  <a href="/" class="nav-name">Maddalena Grignani</a>
   <ul class="nav-links">
-    <li><a href="#research">Research</a></li>
-    <li><a href="#teaching">Teaching</a></li>
-    <li><a href="CV_2026.pdf">CV</a></li>
-    <li><a href="https://scholar.google.com/citations?user=r9fAOdUAAAAJ&hl=en&oi=ao" target="_blank">Scholar</a></li>
+    <li><a href="/research/">Research</a></li>
+    <li><a href="/teaching/">Teaching</a></li>
+    <li><a href="/CV_2026.pdf">CV</a></li>
+    <li><a href="https://scholar.google.com/citations?user=r9fAOdUAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Scholar</a></li>
   </ul>
 </nav>
 
@@ -386,8 +69,8 @@
 
 <!-- HERO CONTENT -->
 <div class="hero-content">
-  
-  <img src="my_pic.jpg" alt="Maddalena Grignani" class="hero-photo">
+
+  <img src="/my_pic.jpg" alt="Maddalena Grignani" class="hero-photo" width="130" height="130">
   <div class="hero-text">
     <h1>Maddalena Grignani</h1>
     <p><strong>PhD Student in Economics</strong></p>
@@ -396,16 +79,17 @@
     </p>
     <p style="margin-top:10px; color:var(--text);">
     My research lies at the intersection of applied econometrics and policy evaluation, with a broad interest in how policies and institutions shape individual behavior and social outcomes.
-    A central part of my work examines the long-run consequences of early-life interventions: I study how sex education affects female labor force participation — through both fertility and social norms — and intimate partner violence. 
-    A related project looks at how access to healthcare shapes fertility decisions. 
-    I have also worked on institutional trust, examining how individuals form and update beliefs about public institutions.  
+    A central part of my work examines the long-run consequences of early-life interventions: I study how sex education affects female labor force participation — through both fertility and social norms — and intimate partner violence.
+    A related project looks at how access to healthcare shapes fertility decisions.
+    I have also worked on institutional trust, examining how individuals form and update beliefs about public institutions.
     </p>
+    <p>
       Advisor: <a href="mailto:libertad.gonzalez@upf.edu" style="color:var(--brick);text-decoration:none;">Libertad González</a>.
     </p>
     <div class="hero-links">
       <a href="mailto:maddalena.grignani@upf.edu">Email</a>
-      <a href="CV_2026.pdf">CV</a>
-      <a href="https://scholar.google.com/citations?user=r9fAOdUAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a>
+      <a href="/CV_2026.pdf">CV</a>
+      <a href="https://scholar.google.com/citations?user=r9fAOdUAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Google Scholar</a>
     </div>
   </div>
 </div>
@@ -417,15 +101,14 @@
 </div>
 
 
-<!-- ── PAPERS BANNER ── -->
-<div class="photo-banner banner-research" id="research">
+<!-- ── RESEARCH BANNER ── -->
+<div class="photo-banner banner-research">
   <div class="banner-label">Research</div>
 </div>
 
 <div class="section-body">
 
-  <!-- Working Papers -->
-  <div class="subsection-label"><span>Working Papers</span></div>
+  <div class="subsection-label"><span>Selected Work</span></div>
 
   <div class="paper">
     <div class="paper-status">Job Market Paper</div>
@@ -439,90 +122,20 @@
   </div>
 
   <div class="paper">
-    <div class="paper-title">Access to Healthcare, Fertility, and Reproductive Health</div>
-    <div class="paper-coauthors">with Libertad González and Judit Vall Castelló</div>
-  </div>
-
-  <div class="paper">
-    <div class="paper-status">2020 · White Paper</div>
-    <div class="paper-title">How COVID-19 Is Changing Americans' Behaviors, Expectations, and Political Views</div>
-    <div class="paper-coauthors">with M. Bertrand, G. Briscese, and S. Nassar</div>
-    <div class="paper-venue">Becker Friedman Institute, University of Chicago</div>
-    <div class="paper-links">
-      <a class="tag" href="#">Paper</a>
-    </div>
-  </div>
-
-  <!-- Work in Progress -->
-  <div class="subsection-label"><span>Work in Progress</span></div>
-
-  <div class="paper">
-    <div class="paper-title">Sex Education and Dating Violence Prevention</div>
-    <div class="paper-coauthors">with Caterina Muratori</div>
-  </div>
-
-  <div class="paper">
-    <div class="paper-title">Unexpected Election Results and IPV</div>
-    <div class="paper-coauthors">with Sirus Håfström Dehdari and Jaakko Meriläinen</div>
-  </div>
-
-  <div class="paper">
-    <div class="paper-title">The Maternity Leave Gap in Academia: Evidence from Big Data on Conferences</div>
-    <div class="paper-coauthors">with Mateo Seré</div>
-  </div>
-
-  <div class="paper">
-    <div class="paper-title">Impact of Social Unrest on Institutional Confidence: Evidence from the Black Lives Matter Movement</div>
-    <div class="paper-coauthors">with Simone Cigna and Georgii Zherebilov</div>
-  </div>
-
-  <!-- Publications -->
-  <div class="subsection-label"><span>Publications</span></div>
-
-  <div class="paper">
-    <div class="paper-status">2024</div>
+    <div class="paper-status">2024 · Publication</div>
     <div class="paper-title">Norm Misperceptions in Social Dilemmas: The Role of Preferences, Heuristics and Experiences</div>
     <div class="paper-coauthors">with G. Briscese, N. Lacetera, M. Macis, and M. Tonin</div>
     <div class="paper-venue"><em>Journal of Behavioral Economics for Policy</em>, 8(S1), 9–11</div>
     <div class="paper-links">
-      <a class="tag" href="#">Paper</a>
+      <a class="tag" href="https://sabeconomics.org/ojs/index.php/jbep/article/view/215" target="_blank" rel="noopener">Paper</a>
     </div>
   </div>
 
-</div>
-
-
-<!-- ── TEACHING BANNER ── -->
-<div class="photo-banner banner-teaching" id="teaching">
-  <div class="banner-label">Teaching</div>
-</div>
-
-<div class="section-body">
-
-  <div class="teaching-label">Teaching Assistant · Pompeu Fabra University</div>
-
-  <table class="teaching-table">
-    <tr>
-      <td>Data Analysis</td>
-      <td>2022 – 2025</td>
-    </tr>
-    <tr>
-      <td>Microeconomics</td>
-      <td>2022</td>
-    </tr>
-    <tr>
-      <td>Microeconomics II</td>
-      <td>2023</td>
-    </tr>
-    <tr>
-      <td>Econometrics III</td>
-      <td>2023</td>
-    </tr>
-    <tr>
-      <td>Enterprises' Organisation and Administration</td>
-      <td>2022</td>
-    </tr>
-  </table>
+  <div class="paper">
+    <div class="paper-links" style="margin-top:4px;">
+      <a class="tag" href="/research/">See all research &rarr;</a>
+    </div>
+  </div>
 
 </div>
 
