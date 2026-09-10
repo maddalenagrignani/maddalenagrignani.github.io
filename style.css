@@ -101,26 +101,31 @@
       z-index: 1;
       padding: 32px 60px;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 40px;
-      font-weight: 300;
+      font-size: 52px;
+      font-weight: 400;
       letter-spacing: 0.02em;
       color: #fff;
+      /* soft shadow lifts the white off the photo behind it */
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
     }
 
     /* ── PER-SECTION PHOTOS ──
        When you upload new images, change the URL here — nowhere else.
     ── */
+    /* The hero is a decorative crop. The three labelled banners below set
+       aspect-ratio to match their image file exactly, so the whole photo is
+       always visible - nothing gets cut off, at any window width. If you
+       swap one of these photos, update its ratio to the new pixel size. */
     .banner-hero     { background-image: url('/leafs.jpg'); height: 300px; }
-    .banner-research { background-image: url('/straws.jpg'); }
-    .banner-teaching { background-image: url('/wonder.jpg'); }
+    .banner-research { background-image: url('/straws.jpg'); height: auto; aspect-ratio: 2000 / 544; }
+    .banner-teaching { background-image: url('/wonder.jpg'); height: auto; aspect-ratio: 2000 / 423; }
 
-    /* ── HOBBIES BANNER ──
-       No overlay (handled above). Replace filename when ready.
-    ── */
+    /* ── HOBBIES BANNER ── */
     .banner-hobbies {
       background-image: url('/jellyfish_slice.jpg');
-      height: 200px;
-      background-position: center 60%;
+      height: auto;
+      aspect-ratio: 2000 / 346;
+      background-position: center;
     }
 
     /* ── HERO CONTENT ── */
@@ -351,9 +356,9 @@
       .nav-name { font-size: 14px; white-space: nowrap; }
       .nav-links { gap: 12px; }
       .nav-links a { font-size: 10px; letter-spacing: 0.05em; white-space: nowrap; }
-      .banner-label { font-size: 28px; padding: 22px; }
-      .photo-banner { height: 120px; }
+      .banner-label { font-size: 30px; padding: 18px; }
       .banner-hero { height: 300px; }
+      .banner-research, .banner-teaching, .banner-hobbies { height: auto; }
       .hero-content { flex-direction: column; gap: 20px; padding: 28px 20px 36px; }
       .interests-row, .section-body { padding-left: 20px; padding-right: 20px; }
       footer { flex-direction: column; gap: 6px; padding: 28px 20px 16px; }
