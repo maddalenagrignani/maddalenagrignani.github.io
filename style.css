@@ -122,11 +122,15 @@
 
     /* ── HOBBIES BANNER ── */
     .banner-hobbies {
-      background-image: url('/jellyfish_slice.jpg');
+      background-image: url('/turtle_slice.jpg');
       height: auto;
-      aspect-ratio: 2000 / 346;
+      aspect-ratio: 2000 / 470;
       background-position: center;
+      /* sentence sits top-right, over the open water */
+      align-items: flex-start;
+      justify-content: flex-end;
     }
+    .banner-hobbies .banner-label { text-align: right; }
 
     /* ── HERO CONTENT ── */
     .hero-content {
