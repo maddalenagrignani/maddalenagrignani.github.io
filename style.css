@@ -119,6 +119,9 @@
     .banner-hero     { background-image: url('/leafs.jpg'); height: 300px; }
     .banner-research { background-image: url('/straws.jpg'); height: auto; aspect-ratio: 2000 / 423; }
     .banner-teaching { background-image: url('/wonder.jpg'); height: auto; aspect-ratio: 2000 / 423; }
+    /* Home page only: a thin strip version of the research banner.
+       /research/ keeps the full-height one above. */
+    .banner-slim { height: 140px; aspect-ratio: auto; }
 
     /* ── HOBBIES BANNER ── */
     .banner-hobbies {
@@ -363,6 +366,7 @@
       .banner-label { font-size: 30px; padding: 18px; }
       .banner-hero { height: 300px; }
       .banner-research, .banner-teaching, .banner-hobbies { height: auto; }
+      .banner-slim { height: 110px; }
       .hero-content { flex-direction: column; gap: 20px; padding: 28px 20px 36px; }
       .interests-row, .section-body { padding-left: 20px; padding-right: 20px; }
       footer { flex-direction: column; gap: 6px; padding: 28px 20px 16px; }
