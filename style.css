@@ -117,7 +117,7 @@
        always visible - nothing gets cut off, at any window width. If you
        swap one of these photos, update its ratio to the new pixel size. */
     .banner-hero     { background-image: url('/leafs.jpg'); height: 300px; }
-    .banner-research { background-image: url('/straws.jpg'); height: auto; aspect-ratio: 2000 / 423; }
+    .banner-research { background-image: url('/boat_slice.jpg'); height: auto; aspect-ratio: 2000 / 423; }
     .banner-teaching { background-image: url('/wonder.jpg'); height: auto; aspect-ratio: 2000 / 423; }
     /* Home page only: a thin strip version of the research banner.
        /research/ keeps the full-height one above. */
