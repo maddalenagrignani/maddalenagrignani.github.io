@@ -9,7 +9,8 @@ research/index.html     /research/
 teaching/index.html     /teaching/
 style.css               shared styles for all three pages
 images/                 photos (banners + portrait)
-papers/                 CV and working papers (PDF)
+papers/                 working papers (PDF)
+CV_2026.pdf             CV
 sitemap.xml, robots.txt search-engine files - update sitemap lastmod when pages change
 googled181db49c38ee583.html   Search Console verification - must stay at the root
 ```
