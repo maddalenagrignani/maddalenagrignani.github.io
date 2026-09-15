@@ -122,6 +122,8 @@
     /* Home page only: a thin strip version of the research banner.
        /research/ keeps the full-height one above. */
     .banner-slim { height: 140px; aspect-ratio: auto; }
+    /* in the thin strip, drop the heading to the bottom edge so it clears the boat */
+    .banner-slim .banner-label { padding-top: 0; padding-bottom: 12px; }
 
     /* ── HOBBIES BANNER ── */
     .banner-hobbies {
@@ -374,6 +376,7 @@
       .banner-hero { height: 300px; }
       .banner-research, .banner-teaching, .banner-hobbies { height: auto; }
       .banner-slim { height: 110px; }
+      .banner-slim .banner-label { padding: 0 18px 10px; }
       .hero-content { flex-direction: column; gap: 20px; padding: 28px 20px 36px; }
       .interests-row, .section-body { padding-left: 20px; padding-right: 20px; }
       footer { flex-direction: column; gap: 6px; padding: 28px 20px 16px; }
