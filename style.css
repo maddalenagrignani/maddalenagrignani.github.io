@@ -351,6 +351,28 @@
       padding-left: 20px;
     }
 
+    /* Language each course was taught in */
+    .teaching-table td.teaching-lang {
+      text-align: right;
+      white-space: nowrap;
+      padding-left: 20px;
+    }
+
+    .lang-tag {
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 3px 10px;
+      border-radius: 2px;
+      background: var(--tag-bg);
+      color: var(--brick);
+    }
+
+    .teaching-intro {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
     /* ── FOOTER ── */
     footer {
       max-width: 860px;
