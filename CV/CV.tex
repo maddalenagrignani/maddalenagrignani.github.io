@@ -1,0 +1,276 @@
+% ============================================================
+% Maddalena Grignani -- Academic CV
+% ============================================================
+% Compiles with pdflatex (e.g. on Overleaf).
+%
+% KEY LAYOUT DECISION:
+%   Each entry uses two side-by-side minipages:
+%     - left minipage (85% of text width): title, subtitle, description
+%     - right minipage (14% of text width): date, right-aligned
+%   Minipages wrap text naturally, so nothing overflows.
+% ============================================================
+
+\documentclass[11pt, a4paper]{article}
+
+% --- Page layout ---
+\usepackage[top=2cm, bottom=2cm, left=2.5cm, right=2.5cm]{geometry}
+
+% --- Encoding & font ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% --- Section heading style ---
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\scshape\bfseries\normalsize}
+  {}
+  {0pt}
+  {}
+  [\titlerule]
+\titlespacing{\section}{0pt}{10pt}{6pt}
+
+% --- Lists ---
+\usepackage{enumitem}
+\setlist{noitemsep, topsep=2pt, leftmargin=1.5em}
+
+% --- Hyperlinks ---
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Maddalena Grignani, Curriculum Vitae}, pdfauthor={Maddalena Grignani}}
+
+% --- Misc ---
+\usepackage{microtype}
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}   % we control spacing manually in commands
+
+% ============================================================
+% CUSTOM COMMANDS
+% ============================================================
+
+% \cventry{Title}{Subtitle / Institution}{Location}{Date}{Description}
+%
+% Layout: two side-by-side minipages.
+%   Left  (85%): bold title on one line, italic subtitle below,
+%                then optional description in small font.
+%   Right (13%): date right-aligned, location below it.
+% The 2% gap comes from \hfill between the two minipages.
+%
+% Why minipages? tabular* doesn't wrap text -- long titles
+% overflow the page. minipages wrap naturally.
+\newcommand{\cventry}[5]{%
+  \begin{minipage}[t]{0.8\textwidth}
+    \textbf{#1}\\[-2pt]
+    \textit{\small #2}%
+    \ifx&#5&\else\\[1pt]{\small #5}\fi
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.2\textwidth}
+    \raggedleft\small
+    \textit{#4}\\
+    #3
+  \end{minipage}%
+  \par\vspace{5pt}%
+}
+
+% \cvpub{full citation text}
+% Hanging indent so run-on lines align after the first character.
+\newcommand{\cvpub}[1]{%
+  \hangindent=1em%
+  {\small #1}\par\vspace{4pt}%
+}
+
+% ============================================================
+% DOCUMENT
+% ============================================================
+
+\begin{document}
+
+% ---- Header ------------------------------------------------
+\begin{center}
+  {\LARGE \textbf{Maddalena Grignani}}\\[4pt]
+  PhD Candidate in Economics $\cdot$ Pompeu Fabra University\\[2pt]
+  \href{mailto:maddalena.grignani@upf.edu}{maddalena.grignani@upf.edu}
+\end{center}
+
+\vspace{6pt}
+
+% ---- Education ---------------------------------------------
+\section{Education}
+
+\cventry{PhD in Economics}%
+  {Pompeu Fabra University \textmd{-- Advisor: Libertad González}}%
+  {Barcelona, Spain}{Sept 2021--present}{}
+
+\cventry{Master of Science in Economics and Social Sciences}%
+  {Bocconi University \textmd{-- Graduation with honours (110/110 cum laude)}}%
+  {Milan, Italy}{Sept 2016--Mar 2019}{}
+  %{Thesis: \textit{``Exposure to violence and fertilizer usage: evidence from two conflicts in Nigeria''}}
+
+\cventry{Bachelor of Science in Economics and Statistics for Organizations}%
+  {University of Turin \textmd{-- Graduation with honours (110/110 cum laude)}}%
+  {Turin, Italy}{Sept 2013--Jul 2016}{}
+  %{Thesis: \textit{``Microcredit -- Between theoretical debates and empirical evidence''}}
+
+\cventry{Exchange Program in Economics}%
+  {I.S.E.M. -- Université de Nice Sophia Antipolis}%
+  {Nice, France}{Sept 2014--Jun 2015}{}
+
+% ---- Scholarships ------------------------------------------
+\section{Scholarships and Grants}
+
+% Grants appear at the top so they sit alongside the scholarships chronologically
+
+\cventry{TESS Grant (Research grant)}%
+  {Time-Sharing Experiments for the Social Sciences (NORC), jointly with Guglielmo Briscese}%
+  {}{2024}
+
+\cventry{MRes PhD Track -- Tuition waiver}%
+  {Pompeu Fabra University (MRes in Economics PhD Track)}%
+  {}{Sept 2022- Jun 2023}
+
+\cventry{11th UniCredit Foundation Masterscholarship -- Tuition fees and stipend}%
+  {Barcelona School of Economics (MSc in Economics PhD Track)}%
+  {}{Sept 2021--Jun 2022}
+
+\cventry{LEAP Students Grant (Research grant)}%
+  {Laboratory for Effective Anti-Poverty Practices, Bocconi University (with Jack Melbourne).}%
+  {}{2021}
+
+\cventry{Scuola di Studi Superiori Scholarship - Housing, tuition fees, stipend and additional classes)}  %
+  {Scuola di Studi Superiori ``Ferdinando Rossi'', University of Turin}%
+  {}{Sept 2013--Jul 2016}
+ % {Major in Government and Human Science, graduation with 70/70. Thesis: \textit{``Are choices in poverty really poor? A Cognitive Approach''}}
+
+% ---- Professional Experience --------------------------------
+\section{Publications}
+
+\cvpub{Briscese, G., Grignani, M., Lacetera, N., Macis, M., \& Tonin, M. (2024).
+  Norm misperceptions in social dilemmas: the role of preferences, heuristics and experiences.
+  \textit{Journal of Behavioral Economics for Policy}, \textit{8}(S1), 9--11.}
+
+% ---- Working Papers ----------------------------------------
+\section{Working Papers}
+
+% Job Market Paper gets its own label
+\cvpub{\textbf{[Job Market Paper]} \textit{More than Sex: Sex Education and Women’s Labor Market Outcomes in the Long Run}.}
+
+\cvpub{\textit{Access to healthcare, fertility, and reproductive health}
+  (with Libertad González and Judit Vall Castelló). \textbf{Under review.}}
+
+\cvpub{\textit{Can Trust in Public Institutions Be Restored? Evidence from Two Experimental Studies}
+  (with Guglielmo Briscese). \textbf{Under review.}}
+
+\cvpub{Bertrand, M., Briscese, G., Grignani, M., \& Nassar, S. (2020).
+  \textit{How COVID-19 Is Changing Americans' Behaviors, Expectations, and Political Views}.
+  Becker Friedman Institute. Report.}
+
+% ---- Work in Progress --------------------------------------
+\section{Work in Progress}
+
+\cvpub{\textit{Sex Education and Dating Violence Prevention}
+  (with Caterina Muratori).}
+
+\cvpub{\textit{The Maternity Leave Gap in Academia: Evidence from Big Data on Conferences}
+  (with Mateo Seré).}
+
+\cvpub{\textit{Impact of social unrest on institutional confidence: evidence from the Black Lives Matter movement} (with Simone Cigna and Georgii Zherebilov).}
+
+\cvpub{\textit{Unexpected Election Results and IPV}
+  (with Sirus Håfström Dehdari and Jaakko Meriläinen).}
+
+% ---- Teaching ----------------------------------------------
+\section{Professional Experience}
+
+\cventry{Research Professional}%
+  {University of Chicago, Rustandy Center for Social Sector Innovation \textmd{(Faculty: M. Bertrand)}}%
+  {Chicago, USA}{Sept 2019--Jun 2021}%
+  %{Writing literature reviews, cleaning data, and performing analyses.Worked on the impact of COVID-19 on Americans' trust in institutions and policy preferences.}
+
+\cventry{Research Assistant}%
+  {Harvard Kennedy School \textmd{(Faculty: M. Carlana)}}%
+  {Milan, Italy}{Mar 2019--Jul 2019}%
+  %{Managing the impact evaluation of ``Girls Code It Better''; data cleaning and preliminary analyses.}
+
+\cventry{Research Assistant (Internship)}%
+  {University of Southern California and BRAC Uganda \textmd{(Faculty: V. Bassi)}}%
+  {Kampala, Uganda}{Jul 2018--Oct 2018}%
+  %{Piloting; training enumerators; survey implementation supervision; data cleaning and analysis.}
+
+%\cventry{Volunteer}%
+%  {En Via (Microfinance Foundation)}%
+%  {Oaxaca, Mexico}{Jul 2015--Sept 2015}%
+  %{Survey and statistical work; relationship management with local borrowers.}
+
+% ---- Publications ------------------------------------------
+
+\section{Teaching}
+
+% Teaching uses a simple two-minipage layout too, but without a subtitle row.
+% We list all courses under one institution header, then each course as its own row.
+
+\textit{Teaching Assistant, Pompeu Fabra University, Barcelona}
+
+\vspace{4pt}
+% Each course row: course name left, date right
+\newcommand{\course}[2]{%
+  \begin{minipage}[t]{0.84\textwidth}
+    \small #1
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.14\textwidth}
+    \raggedleft\small\textit{#2}
+  \end{minipage}\par\vspace{2pt}%
+}
+
+\course{Data Analysis (Spanish)}{2023--2025}
+\course{Labor Economics (Spanish)}{2025}
+\course{Microeconomics II (English)}{2023}
+\course{Econometrics III (English)}{2023}
+\course{Data Analysis (English)}{2022--2023}
+\course{Microeconomics (English)}{2022}
+
+\vspace{6pt}
+
+% ---- Conferences -------------------------------------------
+\section{Conferences and Workshops}
+
+\textbf{Organizer}
+\begin{itemize}
+  \item Jamboree PhD Conference 2024, Barcelona, Spain
+\end{itemize}
+
+\textbf{Presenter}
+\begin{itemize}
+    \item Riederau Workshop on People’s Understanding of and Support for Economic Policies 2026, Munich, Germany 
+    \item Thessaloniki PhD Student Conference 2026, Thessaloniki, Greece 
+    \item Jamboree PhD Conference 2026, Barcelona, Spain
+  \item SAEe Conference 2025, Barcelona, Spain \textit{(PhD School scholarship winner)}
+  \item International Behavioral Public Policy Conference 2025, London, UK
+  \item IBEO Political Economy Workshop 2025, Alghero, Italy
+  \item 11th IEB Workshop on Political Economy 2025, Barcelona, Spain
+  \item 18th Workshop on Social Economy for Young Economists 2025, Bologna, Italy
+  \item Fourth Catalan Economic Society Congress 2025, Barcelona, Spain
+  \item ASSA Conference 2025, San Francisco, USA
+  %\item UPF Applied Lunch 2024, Barcelona, Spain
+  \item SAEe Conference 2023, Salamanca, Spain \textit{(PhD scholarship winner)}
+  \item CEPR Symposium 2023, Paris, France
+  \item IAREP-SABE 2022, Nice, France
+\end{itemize}
+
+% ---- Skills ------------------------------------------------
+\section{Language and IT Skills}
+
+\textbf{Languages:} Italian (native); English, French, Spanish (proficient); Catalan (beginner)
+
+\textbf{IT:} Stata, R (proficient); Python, ArcGIS (advanced); \LaTeX, Qualtrics, Survey Solutions (proficient)
+
+% ---- Other -------------------------------------------------
+\section{Other Activities}
+
+\begin{itemize}
+  \item Student Affiliate, Laboratory for Effective Anti-Poverty Practices (LEAP),
+        Bocconi University (2017--2019)
+  \item President, Bocconi Association for Behavioural Economics ``B.Bias'' (2018--2019)
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,3 @@
+# LaTeX build files for the CV; only CV/CV.tex is tracked and /CV.pdf is the published copy
+CV/*
+!CV/CV.tex

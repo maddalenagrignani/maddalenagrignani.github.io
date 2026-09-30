@@ -11,6 +11,7 @@ style.css               shared styles for all three pages
 images/                 photos (banners + portrait)
 papers/                 working papers (PDF)
 CV.pdf                  CV (keep this filename when replacing it)
+CV/CV.tex               CV source - compile it, then copy CV/CV.pdf over /CV.pdf
 sitemap.xml, robots.txt search-engine files - update sitemap lastmod when pages change
 googled181db49c38ee583.html   Search Console verification - must stay at the root
 ```
