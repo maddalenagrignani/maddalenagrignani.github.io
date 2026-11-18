@@ -7,7 +7,9 @@ GitHub Pages publishes whatever is on `main`.
 index.html              home page
 research/index.html     /research/
 teaching/index.html     /teaching/
-style.css               shared styles for all three pages
+cv.html                 /cv.html - shows CV.pdf inside the page (nav CV links point here).
+                        A file, not a cv/ folder: Windows would merge cv/ with CV/ below.
+style.css               shared styles for all pages
 images/                 photos (banners + portrait)
 papers/                 working papers (PDF)
 CV.pdf                  CV (keep this filename when replacing it)
@@ -31,5 +33,5 @@ googled181db49c38ee583.html   Search Console verification - must stay at the roo
 
 Change the filename in the `.banner-*` rule in `style.css`, and set that rule's
 `aspect-ratio` to the new image's pixel size (e.g. `2000 / 524`) so it shows whole.
-Then bump the `?v=` number on the `style.css` link in all three HTML files so
+Then bump the `?v=` number on the `style.css` link in all four HTML files so
 browsers fetch the new stylesheet.

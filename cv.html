@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CV | Maddalena Grignani</title>
+  <meta name="description" content="Curriculum vitae of Maddalena Grignani, PhD Candidate in Economics at Pompeu Fabra University, Barcelona: research in labor and health economics, education, grants, teaching, and references.">
+  <link rel="canonical" href="https://maddalenagrignani.github.io/cv.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Maddalena Grignani">
+  <meta property="og:title" content="CV | Maddalena Grignani">
+  <meta property="og:description" content="Curriculum vitae of Maddalena Grignani, PhD Candidate in Economics at Pompeu Fabra University, Barcelona.">
+  <meta property="og:url" content="https://maddalenagrignani.github.io/cv.html">
+  <meta property="og:image" content="https://maddalenagrignani.github.io/images/my_pic.jpg">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20261118">
+
+  <!-- Decide how to show the CV before anything is drawn:
+       - computers: the browser's own PDF viewer, inside the page;
+       - phones (and browsers with no PDF viewer): the pages are drawn
+         with pdf.js further down, so visitors never leave the site. -->
+  <script>
+    (function () {
+      var narrow = window.matchMedia && window.matchMedia('(max-width: 620px)').matches;
+      if (narrow || navigator.pdfViewerEnabled === false) {
+        document.documentElement.classList.add('no-pdf');
+      }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "name": "CV — Maddalena Grignani",
+    "url": "https://maddalenagrignani.github.io/cv.html",
+    "mainEntity": { "@type": "Person", "name": "Maddalena Grignani", "url": "https://maddalenagrignani.github.io/" }
+  }
+  </script>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="/" class="nav-name">Maddalena Grignani</a>
+  <ul class="nav-links">
+    <li><a href="/research/">Research</a></li>
+    <li><a href="/teaching/">Teaching</a></li>
+    <li><a href="/cv.html">CV</a></li>
+    <li><a href="https://scholar.google.com/citations?user=r9fAOdUAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Scholar</a></li>
+  </ul>
+</nav>
+
+<!-- ── CV BANNER (slim, so the CV itself starts high on the page) ── -->
+<div class="photo-banner banner-cv banner-slim" style="margin-top: 57px;">
+  <h1 class="banner-label">CV</h1>
+</div>
+
+<div class="section-body" style="padding-top: 32px;">
+
+  <div class="cv-actions">
+    <a class="tag" href="/CV.pdf" download="Grignani_CV.pdf">Download PDF</a>
+    <a class="tag" href="/CV.pdf" target="_blank" rel="noopener">Open in a new tab</a>
+  </div>
+
+  <!-- The CV itself. To update it, replace /CV.pdf; this page needs no change.
+       The frame gets its src from the script below, so phones never load it. -->
+  <iframe class="cv-frame" data-src="/CV.pdf#view=FitH" title="Curriculum vitae of Maddalena Grignani"></iframe>
+  <noscript><iframe class="cv-frame" src="/CV.pdf#view=FitH" title="Curriculum vitae of Maddalena Grignani"></iframe></noscript>
+
+  <!-- Phones: one drawn image per page, with the CV's links kept clickable -->
+  <div class="cv-pages" id="cv-pages"></div>
+
+  <div class="cv-fallback">
+    The CV could not be shown on this page. Use the buttons above to open or download it.
+  </div>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Maddalena Grignani</span>
+  <span>PhD Candidate · Pompeu Fabra University · Barcelona</span>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var frame = document.querySelector('iframe.cv-frame[data-src]');
+
+    // Computers: just load the PDF into the frame.
+    if (!root.classList.contains('no-pdf')) {
+      frame.src = frame.getAttribute('data-src');
+      return;
+    }
+
+    // Phones: fetch pdf.js and draw each page.
+    var CDN = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/';
+    var box = document.getElementById('cv-pages');
+
+    function fail() { root.classList.add('pdf-failed'); }
+
+    var lib = document.createElement('script');
+    lib.src = CDN + 'pdf.min.js';
+    lib.integrity = 'sha384-/1qUCSGwTur9vjf/z9lmu/eCUYbpOTgSjmpbMQZ1/CtX2v/WcAIKqRv+U1DUCG6e';
+    lib.crossOrigin = 'anonymous';
+    lib.onerror = fail;
+    lib.onload = function () {
+      var pdfjs = window.pdfjsLib;
+      if (!pdfjs) { fail(); return; }
+      pdfjs.GlobalWorkerOptions.workerSrc = CDN + 'pdf.worker.min.js';
+      pdfjs.getDocument('/CV.pdf').promise.then(function (pdf) {
+        var chain = Promise.resolve();
+        for (var n = 1; n <= pdf.numPages; n++) {
+          chain = chain.then(drawPage.bind(null, pdf, n));
+        }
+        return chain;
+      }).catch(fail);
+    };
+    document.head.appendChild(lib);
+
+    function drawPage(pdf, n) {
+      return pdf.getPage(n).then(function (page) {
+        var wrap = document.createElement('div');
+        wrap.className = 'cv-page';
+        box.appendChild(wrap);
+
+        // Fit the page to the column; draw extra pixels so it stays sharp when zoomed.
+        var cssScale = wrap.clientWidth / page.getViewport({ scale: 1 }).width;
+        var sharp = Math.min((window.devicePixelRatio || 1) * 1.5, 4);
+        var view = page.getViewport({ scale: cssScale * sharp });
+        var cssView = page.getViewport({ scale: cssScale });
+
+        var canvas = document.createElement('canvas');
+        canvas.width = Math.floor(view.width);
+        canvas.height = Math.floor(view.height);
+        canvas.setAttribute('role', 'img');
+        canvas.setAttribute('aria-label', 'CV, page ' + n + ' of ' + pdf.numPages);
+        wrap.appendChild(canvas);
+
+        return page.render({ canvasContext: canvas.getContext('2d'), viewport: view }).promise
+          .then(function () { return page.getAnnotations(); })
+          .then(function (annots) {
+            annots.forEach(function (a) {
+              if (a.subtype !== 'Link' || !a.url) return;
+              var r = cssView.convertToViewportRectangle(a.rect);
+              var link = document.createElement('a');
+              link.href = a.url;
+              link.target = '_blank';
+              link.rel = 'noopener';
+              link.setAttribute('aria-label', a.url.replace(/^mailto:/, ''));
+              link.style.left = Math.min(r[0], r[2]) / cssView.width * 100 + '%';
+              link.style.top = Math.min(r[1], r[3]) / cssView.height * 100 + '%';
+              link.style.width = Math.abs(r[2] - r[0]) / cssView.width * 100 + '%';
+              link.style.height = Math.abs(r[3] - r[1]) / cssView.height * 100 + '%';
+              wrap.appendChild(link);
+            });
+          });
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>

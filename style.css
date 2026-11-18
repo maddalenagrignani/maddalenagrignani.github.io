@@ -119,6 +119,8 @@
     .banner-hero     { background-image: url('/images/leafs.jpg'); height: 300px; }
     .banner-research { background-image: url('/images/boat_slice.jpg'); height: auto; aspect-ratio: 2000 / 423; }
     .banner-teaching { background-image: url('/images/wonder.jpg'); height: auto; aspect-ratio: 2000 / 423; }
+    /* CV page: always used together with .banner-slim, so the PDF starts high up */
+    .banner-cv       { background-image: url('/images/jellyfish_slice.jpg'); background-position: center 35%; }
     /* Home page only: a thin strip version of the research banner.
        /research/ keeps the full-height one above. */
     .banner-slim { height: 140px; aspect-ratio: auto; }
@@ -165,6 +167,27 @@
 
     .hero-text p { color: var(--muted); margin-bottom: 6px; }
     .hero-text p strong { color: var(--text); }
+
+    /* Job-market line under the name */
+    .hero-text p.jm-status {
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brick);
+      margin-top: 4px;
+    }
+
+    /* The two bio paragraphs */
+    .hero-text p.bio { color: var(--text); margin: 14px 0 0; }
+    .hero-text p.bio + p:not(.bio) { margin-top: 14px; }
+    .bio a {
+      color: var(--brick);
+      text-decoration: none;
+      border-bottom: 1px solid var(--brick);
+      transition: opacity 0.2s;
+    }
+    .bio a:hover { opacity: 0.6; }
 
     .hero-links {
       display: flex;
@@ -373,6 +396,56 @@
       margin-bottom: 20px;
     }
 
+    /* ── CV PAGE ──
+       The PDF is shown inside the page with the browser's own viewer.
+       Phones (and any browser without a built-in PDF viewer) get the
+       fallback card instead, with buttons to open or download the file.
+    ── */
+    .cv-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .cv-frame {
+      display: block;
+      width: 100%;
+      height: 85vh;
+      min-height: 600px;
+      border: 1px solid var(--divider);
+      border-radius: 4px;
+      background: #fff;
+    }
+
+    /* Phones: the pages are drawn by pdf.js (see /cv/index.html) */
+    .cv-pages { display: none; }
+    .cv-page {
+      position: relative;
+      margin-bottom: 14px;
+      border: 1px solid var(--divider);
+      border-radius: 4px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .cv-page canvas { display: block; width: 100%; height: auto; }
+    .cv-page a { position: absolute; }  /* clickable links laid over the page */
+
+    /* Shown only if the pages cannot be drawn (or JavaScript is off on a phone) */
+    .cv-fallback {
+      display: none;
+      padding: 24px;
+      border: 1px solid var(--divider);
+      border-radius: 4px;
+      background: #fff;
+      color: var(--muted);
+    }
+
+    .no-pdf .cv-frame { display: none; }
+    .no-pdf .cv-pages { display: block; }
+    .no-pdf .cv-fallback { display: none; }
+    .no-pdf.pdf-failed .cv-fallback { display: block; }
+
     /* ── FOOTER ── */
     footer {
       max-width: 860px;
@@ -403,4 +476,6 @@
       .interests-row, .section-body { padding-left: 20px; padding-right: 20px; }
       footer { flex-direction: column; gap: 6px; padding: 28px 20px 16px; }
       .teaching-table td:first-child { font-size: 15px; }
+      .cv-frame { display: none; }
+      .cv-fallback { display: block; }
     }
